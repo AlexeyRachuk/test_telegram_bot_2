@@ -5,11 +5,10 @@ from telebot import types
 
 TOKEN = "2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek"
 APP_URL = f"https://raccoonmehbot.herokuapp.com/{TOKEN}"
-
-bot = telebot.TeleBot("2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek")
+bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
-if __name__ == "__main__":
+if __name__ == '__master__':
     server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
 
