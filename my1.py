@@ -82,4 +82,20 @@ def callback_worker(call):
         bot.register_next_step_handler(call.message, reg_name)
 
 
+
+from telebot import types
+
+@bot.message_handler(commands=['button'])
+def start(message):
+  markup = types.InlineKeyboardMarkup()
+  buttonA = types.InlineKeyboardButton('A', callback_data='a')
+  buttonB = types.InlineKeyboardButton('B', callback_data='b')
+  buttonC = types.InlineKeyboardButton('C', callback_data='c')
+
+  markup.row(buttonA, buttonB)
+  markup.row(buttonC)
+
+  bot.send_message(message.chat.id, 'It works!', reply_markup=markup)
+
+
 bot.polling()
