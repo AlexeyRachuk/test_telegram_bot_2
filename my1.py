@@ -39,7 +39,7 @@ def command_help(message):
 
 @bot.message_handler(commands=['Когда', 'когда', 'Туса', 'туса'])
 def command_help(message):
-    bot.reply_to(message, "Привмяу, че кого?")
+    bot.reply_to(message, "Предварительно собираемся у Лёшк в районе 10–12 декабря на слойки")
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDZithqEibdkEMdfQwFqCihlP_XzwZmQACYQEAAixg9RwjJ4QiDIzt8CIE")
 
 bot.polling()
