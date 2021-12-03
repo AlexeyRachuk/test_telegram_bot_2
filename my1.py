@@ -1,7 +1,6 @@
 import os
 import telebot
 from flask import Flask, request
-from datetime import datetime
 from telebot import types
 
 TOKEN = "2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek"
@@ -51,12 +50,5 @@ def command_help(message):
 def command_help(message):
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDaNxhqnFSBq86S1PW4f3uAAFTJHDqzLgAAgkNAAKFgDhL4JDCM58wb7YiBA")
 
-while True:
-    now = datetime.now()
-
-    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
-    if(dt_string=="11/12/2021 12:00:00"):
-        print("Напоминаю, сегодня тусяо у Лёшк", dt_string)
-        break
 
 bot.polling()
