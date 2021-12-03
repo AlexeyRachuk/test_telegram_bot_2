@@ -42,11 +42,18 @@ def command_help(message):
 def command_help(message):
     bot.reply_to(message, "https://jackbox.fun/")
 
-@bot.message_handler(regexp="как дела?|Как дела?")
+
+@bot.message_handler(regexp="как дела?|Как дела?|делишки|Делишки")
 def command_help(message):
     bot.reply_to(message, "У меня норм, а у тебя?")
 
+
 @bot.message_handler(regexp="геншин|Геншин|Genshin|Genshin Impact")
+def command_help(message):
+    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDaNxhqnFSBq86S1PW4f3uAAFTJHDqzLgAAgkNAAKFgDhL4JDCM58wb7YiBA")
+
+
+@bot.message_handler(regexp="Пашар|пашар")
 def command_help(message):
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDaNxhqnFSBq86S1PW4f3uAAFTJHDqzLgAAgkNAAKFgDhL4JDCM58wb7YiBA")
 
