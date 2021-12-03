@@ -8,8 +8,6 @@ APP_URL = f"https://raccoonmehbot.herokuapp.com/{TOKEN}"
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
-
-
 if __name__ == '__master__':
     server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
@@ -28,9 +26,6 @@ def webhook():
     bot.set_webhook(url=APP_URL)
     return '!', 200
 
-name = ''
-age = 0
-
 
 @bot.message_handler(commands=['start', 'help', 'погнале'])
 def command_help(message):
@@ -39,11 +34,17 @@ def command_help(message):
 
 @bot.message_handler(commands=['Когда', 'когда', 'Туса', 'туса'])
 def command_help(message):
-    bot.reply_to(message, "Предварительно собираемся у Лёшк в районе 10–12 декабря на слойки")
+    bot.reply_to(message, "Все собираемся у Лешрака 11 декабря в районе 7–8 часиков нс слойки.")
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDZithqEibdkEMdfQwFqCihlP_XzwZmQACYQEAAixg9RwjJ4QiDIzt8CIE")
+
 
 @bot.message_handler(commands=['jackbox', 'джекбокс', 'игра', 'game'])
 def command_help(message):
     bot.reply_to(message, "https://jackbox.fun/")
+
+@bot.message_handler(regexp="как дела?")
+def command_help(message):
+    bot.reply_to(message, "У меня норм, а у тебя?")
+
 
 bot.polling()
