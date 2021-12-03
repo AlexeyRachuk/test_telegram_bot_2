@@ -1,6 +1,7 @@
 import os
 import telebot
 from flask import Flask, request
+from datetime import datetime
 from telebot import types
 
 TOKEN = "2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek"
@@ -32,7 +33,7 @@ def command_help(message):
     bot.reply_to(message, "Привмяу, че кого?")
 
 
-@bot.message_handler(commands=['Когда', 'когда', 'Туса', 'туса'])
+@bot.message_handler(commands=['Когда', 'когда', 'Туса', 'туса', 'party'])
 def command_help(message):
     bot.reply_to(message, "Все собираемся у Лешрака 11 декабря в районе 7–8 часиков нс слойки.")
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDZithqEibdkEMdfQwFqCihlP_XzwZmQACYQEAAixg9RwjJ4QiDIzt8CIE")
@@ -42,9 +43,20 @@ def command_help(message):
 def command_help(message):
     bot.reply_to(message, "https://jackbox.fun/")
 
-@bot.message_handler(regexp="как дела?")
+@bot.message_handler(regexp="как дела?|Как дела?")
 def command_help(message):
     bot.reply_to(message, "У меня норм, а у тебя?")
 
+@bot.message_handler(regexp="геншин|Геншин|Genshin|Genshin Impact")
+def command_help(message):
+    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDaNxhqnFSBq86S1PW4f3uAAFTJHDqzLgAAgkNAAKFgDhL4JDCM58wb7YiBA")
+
+while True:
+    now = datetime.now()
+
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    if(dt_string=="11/12/2021 12:00:00"):
+        print("Напоминаю, сегодня тусяо у Лёшк", dt_string)
+        break
 
 bot.polling()
