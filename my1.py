@@ -34,7 +34,7 @@ def command_help(message):
 
 @bot.message_handler(commands=['Когда', 'когда', 'Туса', 'туса', 'party'])
 def command_help(message):
-    bot.reply_to(message, "Все собираемся у Лешрака 11 декабря в районе 7–8 часиков нс слойки.")
+    bot.reply_to(message, "Все собираемся у Лешрака 11 декабря в районе 7–8 часиков на слойки.")
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDZithqEibdkEMdfQwFqCihlP_XzwZmQACYQEAAixg9RwjJ4QiDIzt8CIE")
 
 
@@ -51,5 +51,11 @@ def command_help(message):
 @bot.message_handler(regexp="геншин|Геншин|Genshin|Genshin Impact")
 def command_help(message):
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDaNxhqnFSBq86S1PW4f3uAAFTJHDqzLgAAgkNAAKFgDhL4JDCM58wb7YiBA")
+
+
+@bot.message_handler(regexp="Спокойной ночи|спокойной ночи|споки|Споки")
+def command_help(message):
+    bot.reply_to(message, "Спокойной ночи 🌚")
+
 
 bot.polling()
