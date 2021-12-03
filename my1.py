@@ -53,9 +53,9 @@ def command_help(message):
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDaNxhqnFSBq86S1PW4f3uAAFTJHDqzLgAAgkNAAKFgDhL4JDCM58wb7YiBA")
 
 
-@bot.message_handler(regexp="Пашар|пашар")
+@bot.message_handler(regexp="Пашап|пашап")
 def command_help(message):
-    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDaNxhqnFSBq86S1PW4f3uAAFTJHDqzLgAAgkNAAKFgDhL4JDCM58wb7YiBA")
+    bot.send_sticker(message.chat.id, "@DoKu69")
 
 
 bot.polling()
