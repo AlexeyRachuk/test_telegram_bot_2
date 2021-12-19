@@ -1,7 +1,6 @@
 import os
 import telebot
 from flask import Flask, request
-from telebot import types
 
 TOKEN = "2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek"
 APP_URL = f"https://raccoonmehbot.herokuapp.com/{TOKEN}"
@@ -34,8 +33,8 @@ def command_help(message):
 
 @bot.message_handler(commands=['Когда', 'когда', 'Туса', 'туса', 'party'])
 def command_help(message):
-    bot.reply_to(message, "Ну вроде как 5 числа, но может и раньше что замутим.")
-    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDZithqEibdkEMdfQwFqCihlP_XzwZmQACYQEAAixg9RwjJ4QiDIzt8CIE")
+    bot.reply_to(message, "Собираемся 5 числа, по времени определимся чуть позже.\n\nПредлагаю ничего не готовить, а заказать еду, а я думаю чём-нибудь покрепче 🤔")
+    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhK5hv1RjaHAO6rxMiXu6mHRpmfUpoQACMRgAAihWUEmMynP2r9sKQyME")
 
 
 @bot.message_handler(commands=['jackbox', 'джекбокс', 'игра', 'game'])
@@ -61,6 +60,6 @@ def command_help(message):
 @bot.message_handler(commands=['Санта', 'санта', 'santa', 'Santa'])
 def command_help(message):
     bot.reply_to(message, "Тайный Санта 🎅\n\nПокупаем подарочки 🌚\n\nЦена в районе 1000–1500₽, но если хотите, можно и больше.\n\nДарим скорее всего 5 января.\n\nКста я уже купил подарок х)")
-    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDbZZhrz6w6JhcgaXimrq0SiofCB168wACOgADobYRCBvFr5Ov1gHjIgQ")
+    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
 
 bot.polling()
