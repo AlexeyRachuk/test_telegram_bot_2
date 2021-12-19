@@ -1,7 +1,6 @@
 import os
 import telebot
-import schedule
-import time
+import datetime
 from flask import Flask, request
 
 TOKEN = "2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek"
@@ -28,9 +27,9 @@ def webhook():
     return '!', 200
 
 
-@bot.message_handler(commands=['start', 'help', 'погнале'])
-def command_help(message):
-    bot.reply_to(message, "Привмяу, че кого?")
+#@bot.message_handler(commands=['start', 'help', 'погнале'])
+#def command_help(message):
+#   bot.reply_to(message, "Привмяу, че кого?")
 
 
 @bot.message_handler(commands=['Когда', 'когда', 'Туса', 'туса', 'party'])
@@ -67,9 +66,10 @@ def command_help(message):
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
 
 
-@bot.message_handler()
+@bot.message_handler(commands=['start'])
 def mess(message):
-    if datetime.date(2021, 12, 20) and datetime.time(01, 05, 00):
-        bot.send_message(message, "Привет!")
+    today = datetime.date.today()
+    if today.year == 2021 and today.month == 12 and today.day == 21:
+        bot.send_message(message.from_user.id, "Ну работает")
 
-bot.polling()
+bot.polling(none_stop=True, interval=0)
