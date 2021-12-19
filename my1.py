@@ -66,4 +66,10 @@ def command_help(message):
                  "Тайный Санта 🎅\n\nПокупаем подарочки 🌚\n\nЦена в районе 1000–1500₽, но если хотите, можно и больше.\n\nДарим скорее всего 5 января.\n\nКста я уже купил подарок х)")
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
 
-bot.polling(none_stop=True, interval=0)
+
+@bot.message_handler()
+def mess(message):
+    if datetime.date(2021, 12, 20) and datetime.time(01, 05, 00):
+        bot.send_message(message, "Привет!")
+
+bot.polling()
