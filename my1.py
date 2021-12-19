@@ -66,25 +66,4 @@ def command_help(message):
                  "Тайный Санта 🎅\n\nПокупаем подарочки 🌚\n\nЦена в районе 1000–1500₽, но если хотите, можно и больше.\n\nДарим скорее всего 5 января.\n\nКста я уже купил подарок х)")
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
 
-
-@bot.message_handler(commands=['др', 'ДР', 'День рождения', 'день рождения'])
-def command_help(message):
-    bot.reply_to(message, "э")
-
-
-def job():
-    print("I'm working...")
-
-schedule.every(2).minutes.do(job)
-#schedule.every().hour.do(job)
-#schedule.every().day.at("10:30").do(job)
-#schedule.every(5).to(10).minutes.do(job)
-#schedule.every().monday.do(job)
-#schedule.every().wednesday.at("13:15").do(job)
-#schedule.every().minute.at(":17").do(job)
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
-
 bot.polling(none_stop=True, interval=0)
