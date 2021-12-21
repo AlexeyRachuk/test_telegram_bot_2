@@ -1,17 +1,14 @@
 import os
-from datetime import time
-
-import telebot
+import time
+from multiprocessing.context import Process
 import schedule
+import telebot
 from flask import Flask, request
 
 TOKEN = "2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek"
 APP_URL = f"https://raccoonmehbot.herokuapp.com/{TOKEN}"
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
-
-if __name__ == '__master__':
-    server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
 
 @server.route('/' + TOKEN, methods=['POST'])
@@ -68,11 +65,29 @@ def command_help(message):
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
 
 
-def messege(message):
-    bot.send_message(message.chat.id, 'Привет! Я сообщение, отправленное в 02:30.')
-schedule.every().day.at("02:30").do(messege)
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+def send_message1():
+    bot.send_message('Доброе утро 🌚')
+
+
+schedule.every().day.at("09:00").do(send_message1)
+
+
+class ScheduleMessage():
+    def try_send_schedule():
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
+
+    def start_process():
+        p1 = Process(target=ScheduleMessage.try_send_schedule, args=())
+        p1.start()
+
+if __name__ == '__master__':
+    server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
+    ScheduleMessage.start_process()
+    try:
+        bot.polling(none_stop=True)
+    except:
+        pass
 
 bot.polling(none_stop=True, interval=0)
