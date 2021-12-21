@@ -64,30 +64,12 @@ def command_help(message):
                  "Тайный Санта 🎅\n\nПокупаем подарочки 🌚\n\nЦена в районе 1000–1500₽, но если хотите, можно и больше.\n\nДарим скорее всего 5 января.\n\nКста я уже купил подарок х)")
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
 
-
-def send_message1():
-    bot.send_message('Доброе утро 🌚')
-
-
-schedule.every().day.at("09:00").do(send_message1)
-
-
-class ScheduleMessage():
-    def try_send_schedule():
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
-
-    def start_process():
-        p1 = Process(target=ScheduleMessage.try_send_schedule, args=())
-        p1.start()
+@bot.message_handler(regexp="НГ|нг|новым годом|")
+def command_help(message):
+    bot.reply_to(message, "С новым годом! ✨")
 
 if __name__ == '__master__':
     server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
-    ScheduleMessage.start_process()
-    try:
-        bot.polling(none_stop=True)
-    except:
-        pass
+
 
 bot.polling(none_stop=True, interval=0)
