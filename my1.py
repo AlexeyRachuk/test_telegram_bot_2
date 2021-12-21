@@ -1,6 +1,8 @@
 import os
+from datetime import time
+
 import telebot
-import datetime
+import schedule
 from flask import Flask, request
 
 TOKEN = "2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek"
@@ -66,10 +68,11 @@ def command_help(message):
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
 
 
-@bot.message_handler(commands=['start'])
-def mess(message):
-    today = datetime.date.today()
-    if today.year == 2021 and today.month == 12 and today.day == 21:
-        bot.send_message(message.from_user.id, "Ну работает")
+def messege(message):
+    bot.send_message(message.chat.id, 'Привет! Я сообщение, отправленное в 02:30.')
+schedule.every().day.at("02:30").do(messege)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
 
 bot.polling(none_stop=True, interval=0)
