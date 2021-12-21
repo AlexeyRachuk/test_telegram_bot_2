@@ -1,7 +1,4 @@
 import os
-import time
-from multiprocessing.context import Process
-import schedule
 import telebot
 from flask import Flask, request
 
@@ -9,6 +6,9 @@ TOKEN = "2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek"
 APP_URL = f"https://raccoonmehbot.herokuapp.com/{TOKEN}"
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
+
+if __name__ == '__master__':
+    server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
 
 @server.route('/' + TOKEN, methods=['POST'])
@@ -67,9 +67,6 @@ def command_help(message):
 @bot.message_handler(regexp="НГ|нг|новым годом|")
 def command_help(message):
     bot.reply_to(message, "С новым годом! ✨")
-
-if __name__ == '__master__':
-    server.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
 
 
 bot.polling(none_stop=True, interval=0)
