@@ -57,7 +57,7 @@ def command_help(message):
 def command_help(message):
     bot.reply_to(message, "Спокойной ночи 🌚")
 
-@bot.message_handler(regexp="новым годом|нг|НГ|НОВЫМ ГОДОМ")
+@bot.message_handler(regexp="новым годом|НОВЫМ ГОДОМ")
 def command_help(message):
     bot.reply_to(message, "С новым годом! ✨")
 
