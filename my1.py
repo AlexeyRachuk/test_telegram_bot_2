@@ -72,4 +72,4 @@ def command_help(message):
                  "Тайный Санта 🎅\n\nПокупаем подарочки 🌚\n\nЦена в районе 1000–1500₽, но если хотите, можно и больше.\n\nДарим скорее всего 5 января.\n\nКста я уже купил подарок х)")
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
 
-bot.polling(none_stop=True, interval=0)
+bot.polling()
