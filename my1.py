@@ -1,8 +1,7 @@
 import os
 import telebot
 from flask import Flask, request
-
-TOKEN = "2122815268:AAHXEstUmm_bFxw8yiw0HHOYjnn4MdvZ2ek"
+TOKEN = "2122815268:AAERhoA2pXtSzVUkXPxmtlC7oEeJOWJWK5U"
 APP_URL = f"https://raccoonmehbot.herokuapp.com/{TOKEN}"
 bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
