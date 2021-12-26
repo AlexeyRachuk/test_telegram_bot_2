@@ -25,9 +25,9 @@ def webhook():
     return '!', 200
 
 
-#@bot.message_handler(commands=['start', 'help', 'погнале'])
-#def command_help(message):
-#   bot.reply_to(message, "Привмяу, че кого?")
+@bot.message_handler(commands=['start', 'help', 'погнале'])
+def command_help(message):
+bot.reply_to(message, "Привмяу, че кого?")
 
 
 @bot.message_handler(commands=['Когда', 'когда', 'Туса', 'туса', 'party'])
@@ -71,6 +71,5 @@ def command_help(message):
     bot.reply_to(message,
                  "Тайный Санта 🎅\n\nПокупаем подарочки 🌚\n\nЦена в районе 1000–1500₽, но если хотите, можно и больше.\n\nДарим скорее всего 5 января.\n\nКста я уже купил подарок х)")
     bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
-
 
 bot.polling(none_stop=True, interval=0)
