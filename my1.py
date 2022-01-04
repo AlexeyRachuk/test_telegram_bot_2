@@ -24,7 +24,6 @@ def webhook():
     bot.set_webhook(url=APP_URL)
     return '!', 200
 
-
 @bot.message_handler(commands=['start', 'help', 'погнале'])
 def command_help(message):
 bot.reply_to(message, "Привмяу, че кого?")
@@ -56,10 +55,6 @@ def command_help(message):
 def command_help(message):
     bot.reply_to(message, "Спокойной ночи 🌚")
 
-@bot.message_handler(regexp="58")
-def command_help(message):
-    bot.reply_to(message, "Ну ты задрот")
-    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDjTphxLhOb3fkYspd8yXtD0Ihir9EuAACvUUAAuCjggc7M4Cyv8W4biME")
 
 @bot.message_handler(commands=['Санта', 'санта', 'santa', 'Santa'])
 def command_help(message):
