@@ -59,4 +59,10 @@ def command_help(message):
     bot.reply_to(message, "Спокойной ночи 🌚")
 
 
+@bot.message_handler(regexp="бот")
+def command_help(message):
+    bot.reply_to(message, "Привет-привет")
+    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDrDth3wk8UUsMqh1XFKp_gHJyOt1cqwACzwEAAj0N6ATqtWGyHHa6QSME")
+
+
 bot.polling()
