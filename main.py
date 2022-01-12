@@ -26,7 +26,7 @@ def webhook():
     return '!', 200
 
 
-@bot.message_handler(commands=['start', 'help', 'погнале'])
+@bot.message_handler(commands=['start'])
 def command_help(message):
 
 
