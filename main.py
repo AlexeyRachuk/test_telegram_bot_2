@@ -1,6 +1,7 @@
 import os
 import telebot
 from flask import Flask, request
+
 TOKEN = "2122815268:AAERhoA2pXtSzVUkXPxmtlC7oEeJOWJWK5U"
 APP_URL = f"https://raccoonmehbot.herokuapp.com/{TOKEN}"
 bot = telebot.TeleBot(TOKEN)
@@ -24,16 +25,18 @@ def webhook():
     bot.set_webhook(url=APP_URL)
     return '!', 200
 
+
 @bot.message_handler(commands=['start', 'help', 'погнале'])
 def command_help(message):
-bot.reply_to(message, "Привмяу, че кого?")
+
+
+    bot.reply_to(message, "Привмяу, че кого?")
 
 
 @bot.message_handler(commands=['Когда', 'когда', 'Туса', 'туса', 'party'])
 def command_help(message):
     bot.reply_to(message,
-                 "Собираемся 5 числа, по времени определимся чуть позже.\n\nПредлагаю ничего не готовить, а заказать еду, а я думаю чём-нибудь покрепче 🤔")
-    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhK5hv1RjaHAO6rxMiXu6mHRpmfUpoQACMRgAAihWUEmMynP2r9sKQyME")
+                 "Хз когда собираемся играть в монополию")
 
 
 @bot.message_handler(commands=['jackbox', 'джекбокс', 'игра', 'game'])
@@ -55,11 +58,5 @@ def command_help(message):
 def command_help(message):
     bot.reply_to(message, "Спокойной ночи 🌚")
 
-
-@bot.message_handler(commands=['Санта', 'санта', 'santa', 'Santa'])
-def command_help(message):
-    bot.reply_to(message,
-                 "Тайный Санта 🎅\n\nПокупаем подарочки 🌚\n\nЦена в районе 1000–1500₽, но если хотите, можно и больше.\n\nДарим скорее всего 5 января.\n\nКста я уже купил подарок х)")
-    bot.send_sticker(message.chat.id, "CAACAgIAAxkBAAEDhLBhv1SJUPiz53vkKnWh5my78uKlvwACIBMAAm7LuEnGA10qj48M_CME")
 
 bot.polling()
